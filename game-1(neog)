@@ -1,0 +1,53 @@
+var readlineSync = require("readline-sync");
+
+var score = 0;
+
+var questions = [{
+  question: "Where do I live? ",
+  answer: "Inodre"
+}, {
+  question: "where is her office ",
+  answer: "Pune"
+},
+{
+  question: "who is her favourite player",
+  answer: "Virat"
+}];
+
+ var userName = readlineSync.question("What's your name? ");
+
+  console.log("Welcome "+ userName + " to DO YOU KNOW Tanay?");
+
+function play(question, answer) {
+  var userAnswer = readlineSync.question(question);
+
+  if (userAnswer.toUpperCase() === answer.toUpperCase()) { // branching
+    console.log("right!");
+    score = score + 1;
+    
+  } else {
+    console.log("wrong!");
+   
+  }
+
+  console.log("current score: ", score);
+
+}
+
+function game() {
+  for (var i=0; i<questions.length; i++) {
+    var currentQuestion = questions[i];
+    play(currentQuestion.question, currentQuestion.answer)
+  }
+}
+
+function Finalscore() {
+  console.log("YAY! Your Final Score Is: ", score);
+}
+
+game();
+Finalscore();
+
+
+
+
